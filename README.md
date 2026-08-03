@@ -13,7 +13,7 @@
 
 ## 📜 书写标准
 统一采用【叶德书-彭秀模1984土家语拼音方案】，禁止混用海外Brassett拼音。
-两套拼音互转工具存放于 `tools/`。
+两套拼音互转工具存放于 `tools/orthography_convert.py`。
 
 ## 🛠️ 硬件与技术栈
 - 开发设备：Mac Studio M2 Ultra 128GB，基于MLX实现本地离线训练/推理
@@ -30,6 +30,22 @@ translation/ 汉土双语翻译模型
 llm/ 对话流水线脚本、LLM 微调实验代码
 demo_web/ 静态网页演示程序（词典、翻译、发音工具）
 
+## 📚 公开Zenodo数据集说明
+项目归档两套官方开源北部土家语文本语料，原始文件存放路径：`dataset/raw_zenodo/`
+1. **V1 初代存档版（DOI：10.5281/zenodo.4446698）**
+   素材残缺、拼音映射存在标注错误，仅用于学术溯源查阅，**禁止用于模型训练**；
+2. **V2 扩充完整版（DOI：10.5281/zenodo.4447924）**
+   本项目翻译/LLM/ASR/TTS唯一官方训练数据源，完整包含拼音对照表、词汇、课本短句、民间叙事、日常问候语。
+
+原始数据集原生协议为公有领域，经 `tools/orthography_convert.py` 批量转换、清洗汉化后的标准化语料存放于 `dataset/processed/`，衍生数据遵循 CC-BY 4.0 协议。
+
+### 学术引用格式
+#### V1 初代数据集
+Zhou, Y., & Hill, N. W. (2021). A collection of North Tujia (Bifzivsar 北部土家语) vocabulary and textual passages for use in NLP (Version 1) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.4446698
+#### V2 完整版数据集
+Zhou, Y., & Hill, N. W. (2021). A collection of North Tujia (Bifzivsar 北部土家语) vocabulary and textual passages for use in NLP (Version 2) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.4447924
+
+完整数据集许可约束详见根目录 `DATASET_LICENSE.md`。
 
 ## 🤝 如何参与贡献
 欢迎所有志愿者参与：
@@ -41,8 +57,8 @@ demo_web/ 静态网页演示程序（词典、翻译、发音工具）
 所有田野录音必须提前获取受访者**知情同意**，严格保护老人隐私，采集素材不可私自商用。
 
 ## 📄 开源协议
-- 程序源代码：**MIT License**
-- 文本数据集（csv/json词汇、例句）：**CC-BY-SA 4.0**
+- 程序源代码：**MIT License**（根目录 LICENSE 文件）
+- Zenodo原始文本语料：公有领域；项目二次加工标准化数据集：**CC-BY 4.0**，详细规则见 `DATASET_LICENSE.md`
 - 田野原始音频：遵循每位受访者单独签署的知情同意约定
 
 ## 📌 项目进度清单
