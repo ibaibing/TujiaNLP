@@ -1,0 +1,26 @@
+{
+  "record": "4447924",
+  "note": "MD5 values published by Zenodo for record 4447924.",
+  "files": {
+    "Brassett (2006) to Ye orthography.csv": {
+      "md5": "384c8e82621c3fad76b7f636bac24ce3",
+      "size": 95279
+    },
+    "Tujia vocab.csv": {
+      "md5": "a902347f786fa8768f3b93d99562d7af",
+      "size": 33539
+    },
+    "Tujia Greetings.txt": {
+      "md5": "2b6e7a3383d01f4637197cf03f80737f",
+      "size": 164
+    },
+    "Tujia textbook.txt": {
+      "md5": "737080a5d4455cb4687637c25a21b187",
+      "size": 33094
+    },
+    "Tujia texts.txt": {
+      "md5": "f60a36dbf118fbc4881b3c9575f4204b",
+      "size": 6517
+    }
+  }
+}

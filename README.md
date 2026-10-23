@@ -37,7 +37,7 @@ demo_web/ 静态网页演示程序（词典、翻译、发音工具）
 2. **V2 扩充完整版（DOI：10.5281/zenodo.4447924）**
    本项目翻译/LLM/ASR/TTS唯一官方训练数据源，完整包含拼音对照表、词汇、课本短句、民间叙事、日常问候语。
 
-原始数据集原生协议为公有领域，经 `tools/orthography_convert.py` 批量转换、清洗汉化后的标准化语料存放于 `dataset/processed/`，衍生数据遵循 CC-BY 4.0 协议。
+原始数据由 Zenodo 记录 4446698 / 4447924 提供，上传者标注 `Other (Public Domain)`；该标注不是标准许可，且底层词表版权归 Brassett 等原作者。本项目不再分发原始文件，仅提供取数脚本。经 `tools/orthography_convert.py` 转换、清洗后的标准化语料存放于 `dataset/processed/`，其许可仅覆盖本项目新增的转换与标注工作。
 
 ### 学术引用格式
 #### V1 初代数据集
@@ -58,7 +58,8 @@ Zhou, Y., & Hill, N. W. (2021). A collection of North Tujia (Bifzivsar 北部土
 
 ## 📄 开源协议
 - 程序源代码：**MIT License**（根目录 LICENSE 文件）
-- Zenodo原始文本语料：公有领域；项目二次加工标准化数据集：**CC-BY 4.0**，详细规则见 `DATASET_LICENSE.md`
+- 第三方原始语料：版权归原权利人，本项目不授予许可、不再分发，详见 `dataset/raw_zenodo/README.md`
+- 项目自行生成的标准化数据与标注：**CC-BY 4.0**（不含原始词表全文）
 - 田野原始音频：遵循每位受访者单独签署的知情同意约定
 
 ## 📌 项目进度清单
