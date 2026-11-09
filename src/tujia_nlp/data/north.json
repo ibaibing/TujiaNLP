@@ -1,0 +1,1184 @@
+{
+ "version": "0.2.0",
+ "dialect": "north",
+ "description": "Northern Tujia (Longshan/Yongshun/Laifeng). IPA syllable shape to Ye spelling.",
+ "source": "Corpus orthography alignment",
+ "generated_from": "IPA-Ye alignment table",
+ "corrections": [
+  "The Ye initial for ɣ is hx, not g: two independent sources (31 and 52 ɣ- entries respectively) both write hx- (ɣi35 -> hxif, ɣɤ35 -> hxef). The earlier ɣi->gi and ɣɤ->ge were extrapolated from the k-series; corrected to hxi / hxe and marked verified.",
+  "Added 21 syllables required by the recognition vocabulary: 7 are attested in corpus material (verified), the rest follow initial-final rules (rule). ɿ and ə are not tabled; to_ye resolves them through the alias list, because Ye does not distinguish ɿ/i or ə/ɤ.",
+  "Added the 9 nasalised ũ syllables (ũ->un is attested by two corpus forms; the rest follow rules)."
+ ],
+ "tone_letters": {
+  "55": "x",
+  "35": "f",
+  "21": "r",
+  "53": "v"
+ },
+ "syllables": {
+  "a": {
+   "ye": "a",
+   "confidence": "verified"
+  },
+  "ai": {
+   "ye": "ai",
+   "confidence": "verified"
+  },
+  "au": {
+   "ye": "ao",
+   "confidence": "verified"
+  },
+  "aŋ": {
+   "ye": "ang",
+   "confidence": "verified"
+  },
+  "ei": {
+   "ye": "ei",
+   "confidence": "verified"
+  },
+  "eŋ": {
+   "ye": "eng",
+   "confidence": "rule"
+  },
+  "i": {
+   "ye": "i",
+   "confidence": "rule"
+  },
+  "iɛ": {
+   "ye": "ie",
+   "confidence": "rule"
+  },
+  "ja": {
+   "ye": "ya",
+   "confidence": "verified"
+  },
+  "jau": {
+   "ye": "yao",
+   "confidence": "verified"
+  },
+  "ji": {
+   "ye": "yi",
+   "confidence": "verified"
+  },
+  "jiŋ": {
+   "ye": "ying",
+   "confidence": "rule"
+  },
+  "jo": {
+   "ye": "yo",
+   "confidence": "rule"
+  },
+  "jou": {
+   "ye": "you",
+   "confidence": "verified"
+  },
+  "joŋ": {
+   "ye": "yong",
+   "confidence": "verified"
+  },
+  "ju": {
+   "ye": "yu",
+   "confidence": "rule"
+  },
+  "juã": {
+   "ye": "yuan",
+   "confidence": "rule"
+  },
+  "jã": {
+   "ye": "yan",
+   "confidence": "verified"
+  },
+  "jũ": {
+   "ye": "yun",
+   "confidence": "verified"
+  },
+  "jɤ": {
+   "ye": "ye",
+   "confidence": "verified"
+  },
+  "ka": {
+   "ye": "ga",
+   "confidence": "verified"
+  },
+  "kai": {
+   "ye": "gai",
+   "confidence": "verified"
+  },
+  "kau": {
+   "ye": "gao",
+   "confidence": "verified"
+  },
+  "kaŋ": {
+   "ye": "gang",
+   "confidence": "verified"
+  },
+  "kei": {
+   "ye": "gei",
+   "confidence": "verified"
+  },
+  "keŋ": {
+   "ye": "geng",
+   "confidence": "rule"
+  },
+  "ki": {
+   "ye": "gi",
+   "confidence": "verified"
+  },
+  "ko": {
+   "ye": "go",
+   "confidence": "verified"
+  },
+  "koŋ": {
+   "ye": "gong",
+   "confidence": "verified"
+  },
+  "ku": {
+   "ye": "gu",
+   "confidence": "verified"
+  },
+  "kua": {
+   "ye": "gua",
+   "confidence": "verified"
+  },
+  "kuai": {
+   "ye": "guai",
+   "confidence": "verified"
+  },
+  "kuei": {
+   "ye": "gui",
+   "confidence": "verified"
+  },
+  "kuo": {
+   "ye": "guo",
+   "confidence": "rule"
+  },
+  "kuã": {
+   "ye": "guan",
+   "confidence": "verified"
+  },
+  "kã": {
+   "ye": "gan",
+   "confidence": "verified"
+  },
+  "kũ": {
+   "ye": "gun",
+   "confidence": "rule"
+  },
+  "kɤ": {
+   "ye": "ge",
+   "confidence": "verified"
+  },
+  "kʰa": {
+   "ye": "ka",
+   "confidence": "verified"
+  },
+  "kʰai": {
+   "ye": "kai",
+   "confidence": "verified"
+  },
+  "kʰau": {
+   "ye": "kao",
+   "confidence": "verified"
+  },
+  "kʰaŋ": {
+   "ye": "kang",
+   "confidence": "verified"
+  },
+  "kʰei": {
+   "ye": "kei",
+   "confidence": "verified"
+  },
+  "kʰi": {
+   "ye": "ki",
+   "confidence": "verified"
+  },
+  "kʰo": {
+   "ye": "ko",
+   "confidence": "rule"
+  },
+  "kʰou": {
+   "ye": "kou",
+   "confidence": "verified"
+  },
+  "kʰoŋ": {
+   "ye": "kong",
+   "confidence": "verified"
+  },
+  "kʰu": {
+   "ye": "ku",
+   "confidence": "verified"
+  },
+  "kʰua": {
+   "ye": "kua",
+   "confidence": "verified"
+  },
+  "kʰuai": {
+   "ye": "kuai",
+   "confidence": "verified"
+  },
+  "kʰuei": {
+   "ye": "kui",
+   "confidence": "verified"
+  },
+  "kʰuo": {
+   "ye": "kuo",
+   "confidence": "rule"
+  },
+  "kʰuã": {
+   "ye": "kuan",
+   "confidence": "verified"
+  },
+  "kʰũ": {
+   "ye": "kun",
+   "confidence": "rule"
+  },
+  "kʰɤ": {
+   "ye": "ke",
+   "confidence": "verified"
+  },
+  "la": {
+   "ye": "la",
+   "confidence": "verified"
+  },
+  "lai": {
+   "ye": "lai",
+   "confidence": "verified"
+  },
+  "lau": {
+   "ye": "lao",
+   "confidence": "verified"
+  },
+  "laŋ": {
+   "ye": "lang",
+   "confidence": "verified"
+  },
+  "lei": {
+   "ye": "lei",
+   "confidence": "verified"
+  },
+  "leŋ": {
+   "ye": "leng",
+   "confidence": "rule"
+  },
+  "li": {
+   "ye": "li",
+   "confidence": "verified"
+  },
+  "liau": {
+   "ye": "liao",
+   "confidence": "verified"
+  },
+  "liu": {
+   "ye": "liu",
+   "confidence": "verified"
+  },
+  "liã": {
+   "ye": "lian",
+   "confidence": "verified"
+  },
+  "liŋ": {
+   "ye": "ling",
+   "confidence": "rule"
+  },
+  "liɛ": {
+   "ye": "lie",
+   "confidence": "verified"
+  },
+  "lo": {
+   "ye": "lo",
+   "confidence": "verified"
+  },
+  "loŋ": {
+   "ye": "long",
+   "confidence": "verified"
+  },
+  "lu": {
+   "ye": "lu",
+   "confidence": "verified"
+  },
+  "luo": {
+   "ye": "luo",
+   "confidence": "rule"
+  },
+  "luã": {
+   "ye": "luan",
+   "confidence": "verified"
+  },
+  "lũ": {
+   "ye": "lun",
+   "confidence": "verified"
+  },
+  "lɤ": {
+   "ye": "le",
+   "confidence": "rule"
+  },
+  "ma": {
+   "ye": "ma",
+   "confidence": "verified"
+  },
+  "mau": {
+   "ye": "mao",
+   "confidence": "verified"
+  },
+  "maŋ": {
+   "ye": "mang",
+   "confidence": "verified"
+  },
+  "mei": {
+   "ye": "mei",
+   "confidence": "verified"
+  },
+  "meŋ": {
+   "ye": "meng",
+   "confidence": "rule"
+  },
+  "mi": {
+   "ye": "mi",
+   "confidence": "verified"
+  },
+  "miau": {
+   "ye": "miao",
+   "confidence": "verified"
+  },
+  "miã": {
+   "ye": "mian",
+   "confidence": "verified"
+  },
+  "miŋ": {
+   "ye": "ming",
+   "confidence": "rule"
+  },
+  "miɛ": {
+   "ye": "mie",
+   "confidence": "verified"
+  },
+  "mo": {
+   "ye": "mo",
+   "confidence": "verified"
+  },
+  "moŋ": {
+   "ye": "mong",
+   "confidence": "verified"
+  },
+  "mu": {
+   "ye": "mu",
+   "confidence": "verified"
+  },
+  "mũ": {
+   "ye": "mun",
+   "confidence": "rule"
+  },
+  "mɤ": {
+   "ye": "me",
+   "confidence": "verified"
+  },
+  "na": {
+   "ye": "na",
+   "confidence": "verified"
+  },
+  "neŋ": {
+   "ye": "neng",
+   "confidence": "rule"
+  },
+  "ni": {
+   "ye": "ni",
+   "confidence": "verified"
+  },
+  "niau": {
+   "ye": "niao",
+   "confidence": "verified"
+  },
+  "niã": {
+   "ye": "nian",
+   "confidence": "verified"
+  },
+  "niɛ": {
+   "ye": "nie",
+   "confidence": "verified"
+  },
+  "nã": {
+   "ye": "nan",
+   "confidence": "verified"
+  },
+  "o": {
+   "ye": "o",
+   "confidence": "rule"
+  },
+  "oŋ": {
+   "ye": "ong",
+   "confidence": "verified"
+  },
+  "pa": {
+   "ye": "ba",
+   "confidence": "verified"
+  },
+  "pai": {
+   "ye": "bai",
+   "confidence": "verified"
+  },
+  "pau": {
+   "ye": "bao",
+   "confidence": "verified"
+  },
+  "paŋ": {
+   "ye": "bang",
+   "confidence": "verified"
+  },
+  "pei": {
+   "ye": "bei",
+   "confidence": "verified"
+  },
+  "peŋ": {
+   "ye": "beng",
+   "confidence": "rule"
+  },
+  "pi": {
+   "ye": "bi",
+   "confidence": "verified"
+  },
+  "piau": {
+   "ye": "biao",
+   "confidence": "verified"
+  },
+  "piu": {
+   "ye": "biu",
+   "confidence": "verified"
+  },
+  "piã": {
+   "ye": "bian",
+   "confidence": "verified"
+  },
+  "piŋ": {
+   "ye": "bing",
+   "confidence": "rule"
+  },
+  "piɛ": {
+   "ye": "bie",
+   "confidence": "verified"
+  },
+  "po": {
+   "ye": "bo",
+   "confidence": "verified"
+  },
+  "poŋ": {
+   "ye": "bong",
+   "confidence": "verified"
+  },
+  "pu": {
+   "ye": "bu",
+   "confidence": "verified"
+  },
+  "pɤ": {
+   "ye": "be",
+   "confidence": "verified"
+  },
+  "pʰa": {
+   "ye": "pa",
+   "confidence": "verified"
+  },
+  "pʰai": {
+   "ye": "pai",
+   "confidence": "verified"
+  },
+  "pʰau": {
+   "ye": "pao",
+   "confidence": "verified"
+  },
+  "pʰaŋ": {
+   "ye": "pang",
+   "confidence": "verified"
+  },
+  "pʰei": {
+   "ye": "pei",
+   "confidence": "verified"
+  },
+  "pʰeŋ": {
+   "ye": "peng",
+   "confidence": "rule"
+  },
+  "pʰi": {
+   "ye": "pi",
+   "confidence": "verified"
+  },
+  "pʰia": {
+   "ye": "pia",
+   "confidence": "rule"
+  },
+  "pʰiã": {
+   "ye": "pian",
+   "confidence": "verified"
+  },
+  "pʰiŋ": {
+   "ye": "ping",
+   "confidence": "rule"
+  },
+  "pʰiɛ": {
+   "ye": "pie",
+   "confidence": "verified"
+  },
+  "pʰo": {
+   "ye": "po",
+   "confidence": "verified"
+  },
+  "pʰoŋ": {
+   "ye": "pong",
+   "confidence": "verified"
+  },
+  "pʰu": {
+   "ye": "pu",
+   "confidence": "verified"
+  },
+  "pʰũ": {
+   "ye": "pun",
+   "confidence": "rule"
+  },
+  "pʰɤ": {
+   "ye": "pe",
+   "confidence": "verified"
+  },
+  "sa": {
+   "ye": "sa",
+   "confidence": "verified"
+  },
+  "sai": {
+   "ye": "sai",
+   "confidence": "verified"
+  },
+  "sau": {
+   "ye": "sao",
+   "confidence": "verified"
+  },
+  "saŋ": {
+   "ye": "sang",
+   "confidence": "verified"
+  },
+  "sei": {
+   "ye": "sei",
+   "confidence": "verified"
+  },
+  "seŋ": {
+   "ye": "seng",
+   "confidence": "rule"
+  },
+  "si": {
+   "ye": "si",
+   "confidence": "verified"
+  },
+  "so": {
+   "ye": "so",
+   "confidence": "rule"
+  },
+  "sou": {
+   "ye": "sou",
+   "confidence": "verified"
+  },
+  "soŋ": {
+   "ye": "song",
+   "confidence": "verified"
+  },
+  "su": {
+   "ye": "su",
+   "confidence": "verified"
+  },
+  "suai": {
+   "ye": "suai",
+   "confidence": "verified"
+  },
+  "suei": {
+   "ye": "sui",
+   "confidence": "verified"
+  },
+  "suo": {
+   "ye": "suo",
+   "confidence": "rule"
+  },
+  "suã": {
+   "ye": "suan",
+   "confidence": "verified"
+  },
+  "sũ": {
+   "ye": "sun",
+   "confidence": "verified"
+  },
+  "sɤ": {
+   "ye": "se",
+   "confidence": "verified"
+  },
+  "ta": {
+   "ye": "da",
+   "confidence": "verified"
+  },
+  "tai": {
+   "ye": "dai",
+   "confidence": "verified"
+  },
+  "tau": {
+   "ye": "dao",
+   "confidence": "verified"
+  },
+  "taŋ": {
+   "ye": "dang",
+   "confidence": "verified"
+  },
+  "tei": {
+   "ye": "dei",
+   "confidence": "rule"
+  },
+  "teŋ": {
+   "ye": "deng",
+   "confidence": "rule"
+  },
+  "ti": {
+   "ye": "di",
+   "confidence": "verified"
+  },
+  "tiau": {
+   "ye": "diao",
+   "confidence": "verified"
+  },
+  "tiu": {
+   "ye": "diu",
+   "confidence": "verified"
+  },
+  "tiã": {
+   "ye": "dian",
+   "confidence": "verified"
+  },
+  "tiɛ": {
+   "ye": "die",
+   "confidence": "verified"
+  },
+  "to": {
+   "ye": "do",
+   "confidence": "verified"
+  },
+  "tou": {
+   "ye": "dou",
+   "confidence": "rule"
+  },
+  "toŋ": {
+   "ye": "dong",
+   "confidence": "verified"
+  },
+  "tsa": {
+   "ye": "za",
+   "confidence": "verified"
+  },
+  "tsai": {
+   "ye": "zai",
+   "confidence": "verified"
+  },
+  "tsau": {
+   "ye": "zao",
+   "confidence": "verified"
+  },
+  "tsaŋ": {
+   "ye": "zang",
+   "confidence": "verified"
+  },
+  "tsei": {
+   "ye": "zei",
+   "confidence": "rule"
+  },
+  "tseŋ": {
+   "ye": "zeng",
+   "confidence": "rule"
+  },
+  "tsi": {
+   "ye": "zi",
+   "confidence": "verified"
+  },
+  "tso": {
+   "ye": "zo",
+   "confidence": "verified"
+  },
+  "tsou": {
+   "ye": "zou",
+   "confidence": "verified"
+  },
+  "tsoŋ": {
+   "ye": "zong",
+   "confidence": "verified"
+  },
+  "tsu": {
+   "ye": "zu",
+   "confidence": "verified"
+  },
+  "tsua": {
+   "ye": "zua",
+   "confidence": "verified"
+  },
+  "tsuei": {
+   "ye": "zui",
+   "confidence": "verified"
+  },
+  "tsuo": {
+   "ye": "zuo",
+   "confidence": "rule"
+  },
+  "tsuã": {
+   "ye": "zuan",
+   "confidence": "verified"
+  },
+  "tsũ": {
+   "ye": "zun",
+   "confidence": "verified"
+  },
+  "tsɤ": {
+   "ye": "ze",
+   "confidence": "verified"
+  },
+  "tsʰa": {
+   "ye": "ca",
+   "confidence": "verified"
+  },
+  "tsʰai": {
+   "ye": "cai",
+   "confidence": "verified"
+  },
+  "tsʰau": {
+   "ye": "cao",
+   "confidence": "verified"
+  },
+  "tsʰaŋ": {
+   "ye": "cang",
+   "confidence": "verified"
+  },
+  "tsʰei": {
+   "ye": "cei",
+   "confidence": "verified"
+  },
+  "tsʰeŋ": {
+   "ye": "ceng",
+   "confidence": "rule"
+  },
+  "tsʰi": {
+   "ye": "ci",
+   "confidence": "verified"
+  },
+  "tsʰo": {
+   "ye": "co",
+   "confidence": "rule"
+  },
+  "tsʰoŋ": {
+   "ye": "cong",
+   "confidence": "verified"
+  },
+  "tsʰu": {
+   "ye": "cu",
+   "confidence": "verified"
+  },
+  "tsʰuei": {
+   "ye": "cui",
+   "confidence": "verified"
+  },
+  "tsʰuo": {
+   "ye": "cuo",
+   "confidence": "rule"
+  },
+  "tsʰuã": {
+   "ye": "cuan",
+   "confidence": "verified"
+  },
+  "tsʰũ": {
+   "ye": "cun",
+   "confidence": "verified"
+  },
+  "tsʰɤ": {
+   "ye": "ce",
+   "confidence": "verified"
+  },
+  "tu": {
+   "ye": "du",
+   "confidence": "verified"
+  },
+  "tuei": {
+   "ye": "dui",
+   "confidence": "verified"
+  },
+  "tuo": {
+   "ye": "duo",
+   "confidence": "rule"
+  },
+  "tuã": {
+   "ye": "duan",
+   "confidence": "verified"
+  },
+  "tũ": {
+   "ye": "dun",
+   "confidence": "rule"
+  },
+  "tɕi": {
+   "ye": "ji",
+   "confidence": "verified"
+  },
+  "tɕia": {
+   "ye": "jia",
+   "confidence": "verified"
+  },
+  "tɕiau": {
+   "ye": "jiao",
+   "confidence": "verified"
+  },
+  "tɕiu": {
+   "ye": "jiu",
+   "confidence": "verified"
+  },
+  "tɕiã": {
+   "ye": "jian",
+   "confidence": "verified"
+  },
+  "tɕiŋ": {
+   "ye": "jing",
+   "confidence": "rule"
+  },
+  "tɕiɛ": {
+   "ye": "jie",
+   "confidence": "verified"
+  },
+  "tɕʰi": {
+   "ye": "qi",
+   "confidence": "verified"
+  },
+  "tɕʰia": {
+   "ye": "qia",
+   "confidence": "verified"
+  },
+  "tɕʰiau": {
+   "ye": "qiao",
+   "confidence": "verified"
+  },
+  "tɕʰiu": {
+   "ye": "qiu",
+   "confidence": "verified"
+  },
+  "tɕʰiã": {
+   "ye": "qian",
+   "confidence": "verified"
+  },
+  "tɕʰiøŋ": {
+   "ye": "qiong",
+   "confidence": "verified"
+  },
+  "tɕʰiŋ": {
+   "ye": "qing",
+   "confidence": "rule"
+  },
+  "tɕʰiɛ": {
+   "ye": "qie",
+   "confidence": "verified"
+  },
+  "tɕʰu": {
+   "ye": "qu",
+   "confidence": "rule"
+  },
+  "tɤ": {
+   "ye": "de",
+   "confidence": "rule"
+  },
+  "tʰa": {
+   "ye": "ta",
+   "confidence": "verified"
+  },
+  "tʰai": {
+   "ye": "tai",
+   "confidence": "verified"
+  },
+  "tʰau": {
+   "ye": "tao",
+   "confidence": "verified"
+  },
+  "tʰaŋ": {
+   "ye": "tang",
+   "confidence": "verified"
+  },
+  "tʰeŋ": {
+   "ye": "teng",
+   "confidence": "rule"
+  },
+  "tʰi": {
+   "ye": "ti",
+   "confidence": "verified"
+  },
+  "tʰiau": {
+   "ye": "tiao",
+   "confidence": "verified"
+  },
+  "tʰiu": {
+   "ye": "tiu",
+   "confidence": "rule"
+  },
+  "tʰiã": {
+   "ye": "tian",
+   "confidence": "verified"
+  },
+  "tʰiŋ": {
+   "ye": "ting",
+   "confidence": "rule"
+  },
+  "tʰiɛ": {
+   "ye": "tie",
+   "confidence": "verified"
+  },
+  "tʰou": {
+   "ye": "tou",
+   "confidence": "verified"
+  },
+  "tʰoŋ": {
+   "ye": "tong",
+   "confidence": "verified"
+  },
+  "tʰu": {
+   "ye": "tu",
+   "confidence": "verified"
+  },
+  "tʰuei": {
+   "ye": "tui",
+   "confidence": "verified"
+  },
+  "tʰuo": {
+   "ye": "tuo",
+   "confidence": "rule"
+  },
+  "tʰuã": {
+   "ye": "tuan",
+   "confidence": "verified"
+  },
+  "tʰũ": {
+   "ye": "tun",
+   "confidence": "rule"
+  },
+  "wa": {
+   "ye": "wa",
+   "confidence": "verified"
+  },
+  "wai": {
+   "ye": "wai",
+   "confidence": "verified"
+  },
+  "wei": {
+   "ye": "wei",
+   "confidence": "verified"
+  },
+  "weŋ": {
+   "ye": "weng",
+   "confidence": "rule"
+  },
+  "wo": {
+   "ye": "wo",
+   "confidence": "verified"
+  },
+  "wu": {
+   "ye": "wu",
+   "confidence": "verified"
+  },
+  "wua": {
+   "ye": "wua",
+   "confidence": "rule"
+  },
+  "wã": {
+   "ye": "wan",
+   "confidence": "verified"
+  },
+  "wũ": {
+   "ye": "wun",
+   "confidence": "rule"
+  },
+  "xa": {
+   "ye": "ha",
+   "confidence": "verified"
+  },
+  "xai": {
+   "ye": "hai",
+   "confidence": "verified"
+  },
+  "xau": {
+   "ye": "hao",
+   "confidence": "verified"
+  },
+  "xaŋ": {
+   "ye": "hang",
+   "confidence": "verified"
+  },
+  "xei": {
+   "ye": "hei",
+   "confidence": "rule"
+  },
+  "xeŋ": {
+   "ye": "heng",
+   "confidence": "rule"
+  },
+  "xi": {
+   "ye": "hi",
+   "confidence": "verified"
+  },
+  "xo": {
+   "ye": "ho",
+   "confidence": "verified"
+  },
+  "xou": {
+   "ye": "hou",
+   "confidence": "verified"
+  },
+  "xoŋ": {
+   "ye": "hong",
+   "confidence": "verified"
+  },
+  "xu": {
+   "ye": "hu",
+   "confidence": "verified"
+  },
+  "xua": {
+   "ye": "hua",
+   "confidence": "verified"
+  },
+  "xuai": {
+   "ye": "huai",
+   "confidence": "verified"
+  },
+  "xuei": {
+   "ye": "hui",
+   "confidence": "verified"
+  },
+  "xuo": {
+   "ye": "huo",
+   "confidence": "rule"
+  },
+  "xuã": {
+   "ye": "huan",
+   "confidence": "verified"
+  },
+  "xũ": {
+   "ye": "hun",
+   "confidence": "rule"
+  },
+  "xɤ": {
+   "ye": "he",
+   "confidence": "verified"
+  },
+  "zo": {
+   "ye": "ro",
+   "confidence": "verified"
+  },
+  "zũ": {
+   "ye": "run",
+   "confidence": "rule"
+  },
+  "ŋa": {
+   "ye": "nga",
+   "confidence": "verified"
+  },
+  "ŋai": {
+   "ye": "ngai",
+   "confidence": "verified"
+  },
+  "ŋau": {
+   "ye": "ngao",
+   "confidence": "verified"
+  },
+  "ŋaŋ": {
+   "ye": "ngang",
+   "confidence": "verified"
+  },
+  "ŋeŋ": {
+   "ye": "ngeng",
+   "confidence": "rule"
+  },
+  "ŋo": {
+   "ye": "ngo",
+   "confidence": "verified"
+  },
+  "ũ": {
+   "ye": "un",
+   "confidence": "verified"
+  },
+  "ɕi": {
+   "ye": "i",
+   "confidence": "verified"
+  },
+  "ɕia": {
+   "ye": "ia",
+   "confidence": "verified"
+  },
+  "ɕiau": {
+   "ye": "iao",
+   "confidence": "verified"
+  },
+  "ɕiu": {
+   "ye": "iu",
+   "confidence": "verified"
+  },
+  "ɕiã": {
+   "ye": "ian",
+   "confidence": "verified"
+  },
+  "ɕiøŋ": {
+   "ye": "iong",
+   "confidence": "verified"
+  },
+  "ɕiŋ": {
+   "ye": "ing",
+   "confidence": "rule"
+  },
+  "ɕiɛ": {
+   "ye": "ie",
+   "confidence": "verified"
+  },
+  "ɣi": {
+   "ye": "hxi",
+   "confidence": "verified"
+  },
+  "ɣɤ": {
+   "ye": "hxe",
+   "confidence": "verified"
+  },
+  "ɤ": {
+   "ye": "e",
+   "confidence": "rule"
+  },
+  "ʐa": {
+   "ye": "ra",
+   "confidence": "verified"
+  },
+  "ʐaŋ": {
+   "ye": "rang",
+   "confidence": "verified"
+  },
+  "ʐeŋ": {
+   "ye": "reng",
+   "confidence": "rule"
+  },
+  "ʐi": {
+   "ye": "ri",
+   "confidence": "verified"
+  },
+  "ʐou": {
+   "ye": "rou",
+   "confidence": "verified"
+  },
+  "ʐoŋ": {
+   "ye": "rong",
+   "confidence": "verified"
+  },
+  "ʐu": {
+   "ye": "ru",
+   "confidence": "verified"
+  },
+  "ʐua": {
+   "ye": "rua",
+   "confidence": "verified"
+  },
+  "ʐuo": {
+   "ye": "ruo",
+   "confidence": "rule"
+  },
+  "ʐuã": {
+   "ye": "ruan",
+   "confidence": "verified"
+  },
+  "ʐɤ": {
+   "ye": "re",
+   "confidence": "verified"
+  }
+ }
+}

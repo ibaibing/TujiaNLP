@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tujia-nlp"
+dynamic = ["version"]
+description = "Tujia orthography utilities: tone notation, IPA to Ye conversion, phone normalisation"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [{ name = "TujiaNLP contributors" }]
+keywords = ["tujia", "tji", "orthography", "ipa", "ye", "low-resource"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Natural Language :: Chinese (Simplified)",
+    "Topic :: Text Processing :: Linguistic",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+zh = ["pypinyin>=0.50"]
+
+[project.urls]
+Homepage = "https://github.com/ibaibing/TujiaNLP"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# The version lives in one place only: tujia_nlp.__version__.
+[tool.setuptools.dynamic]
+version = { attr = "tujia_nlp.__version__" }
+
+[tool.setuptools.package-data]
+tujia_nlp = ["data/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

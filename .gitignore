@@ -1,9 +1,9 @@
-# Mac系统文件
+# macOS system files
 .DS_Store
 .AppleDouble
 ._*
 
-# MLX / PyTorch 模型权重、检查点
+# Model weights and checkpoints
 *.bin
 *.safetensors
 *.gguf
@@ -12,13 +12,13 @@ models/
 outputs/
 runs/
 
-# 原始音频（严禁上传Git）
+# Raw audio (never commit)
 *.wav
 *.mp3
 *.flac
 raw_audio/
 
-# 环境与缓存
+# Environment and caches
 .env
 *.log
 __pycache__/
@@ -26,50 +26,57 @@ __pycache__/
 venv/
 .venv/
 
-# ========== 数据集本地临时/备份文件过滤 ==========
-# 各类压缩备份包，仅本地留存不上传仓库
+# Python build artifacts
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+
+# ========== Dataset: local temporary and backup files ==========
+# Compressed archives kept locally only
 *.zip
 *.rar
 *.7z
 *.tar.gz
 *.bz2
 
-# Excel/CSV 临时缓存文件
+# Excel / CSV temporary files
 ~$*.xlsx
 *.csv~
 *.xls~
 
-# 数据集处理中间缓存、日志、备份文件
+# Dataset intermediates, logs and backups
 dataset/**/*.tmp
 dataset/**/*.log
 dataset/**/*.cache
 dataset/**/*.bak
 
-# 系统垃圾文件
+# System junk
 .DS_Store
 Thumbs.db
 __pycache__
 *.pyc
 *.pyo
 
-# 私人田野原始音频（遵循知情同意，禁止上传公网）
+# Private field recordings (consent required, never public)
 dataset/audio_raw/
 *.wav
 *.mp3
 *.flac
 *.m4a
 
-# 原始 PDF、扫描图片（不上传Git）
+# Scanned sources and images (not committed)
 *.pdf
 *.jpg
 *.png
 *.tiff
 
-# 原始数据集目录（含未授权版权材料）
+# Local-only dataset directories
 dataset/raw_private/
 dataset/raw_zenodo/.DS_Store
 
-# 第三方数据不随仓库分发：仅保留说明与取数脚本，数据由本地下载
+# Third-party data is not distributed: keep only notes and the fetch script,
+# data is downloaded locally.
 dataset/raw_zenodo/*
 !dataset/raw_zenodo/README.md
 !dataset/raw_zenodo/fetch_zenodo.py

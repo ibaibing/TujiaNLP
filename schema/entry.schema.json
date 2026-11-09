@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ibaibing/TujiaNLP/schema/entry.schema.json",
+  "title": "Dictionary entry (one line of lexicon.jsonl)",
+  "description": "One record per line of lexicon.jsonl: w is toned IPA, p is the per-character phone sequence, g is the gloss, pg is the source locator.",
+  "type": "object",
+  "required": ["w", "p", "g", "pos", "pg"],
+  "properties": {
+    "w": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Toned IPA word form; tones use superscript digits, e.g. 'loŋ⁵⁵', 'a²¹pa²¹'."
+    },
+    "p": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Per-character phone sequence, space separated, e.g. 'l o ŋ'; equals the cleaned and detoned w."
+    },
+    "g": {
+      "type": "string",
+      "description": "Gloss. Chinese dictionaries use Chinese; public packs may carry English only."
+    },
+    "pos": {
+      "type": "string",
+      "description": "Part of speech, one Chinese character (名/动/副/量/数/代/助/连/后缀...); empty string when unannotated."
+    },
+    "pg": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]+(#[0-9]+)?$",
+      "description": "Source locator. Single-dictionary use: 'page_0123'. Pack use: '<pack_id>#<row>', e.g. 'pack-a#1386'."
+    },
+    "src": {
+      "type": "string",
+      "description": "Source pack id. Optional for single-dictionary entries; required for provenance after merging."
+    },
+    "src_head": {
+      "type": "string",
+      "description": "Original headword in the source file, before transliteration."
+    },
+    "ye": {
+      "type": "string",
+      "description": "Yedshu-Peng (1984) spelling; optional, for display and manual checking."
+    },
+    "variants": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Alternative spellings or grammatical variants (future / perfect)."
+    },
+    "sense": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Sense number for the same form; identical forms from different packs keep their own sense."
+    },
+    "notes": {
+      "type": "string",
+      "description": "Free-form annotator note."
+    }
+  },
+  "additionalProperties": true
+}

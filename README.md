@@ -1,74 +1,174 @@
 # TujiaNLP
-利用AI技术抢救、保护濒危**北部土家语（龙山苗儿滩标准音）**
-> 土家语目前仅高龄土家族母语者掌握，面临语言消亡风险。本开源公益项目旨在数字化留存语言资料，构建土家语AI语音、翻译与对话模型。
 
-## 🎯 项目目标
-1. 田野采集土家语音频，建立规范双语标注数据集；
-2. 训练土家语ASR（语音识别）、TTS（语音合成）；
-3. 实现土家语 ↔ 汉语机器翻译；
-4. 搭建土家语对话AI（模块化流水线先行，远期开展LLM微调）；
-5. 产出轻量化学习工具，用于土家语传承科普。
+Preserving the endangered **Northern Tujia** language with AI.
 
-> ⚠️ 范围限定：**北部土家语（龙山/永顺/来凤片区）**，前期暂不纳入南部土家语，避免方言混杂干扰模型训练。
+> Tujia is now spoken mainly by elderly native speakers. This open-source project aims to
+> digitise the language record and build Tujia speech, translation and dialogue models.
 
-## 📜 书写标准
-统一采用【叶德书-彭秀模1984土家语拼音方案】，禁止混用海外Brassett拼音。
-两套拼音互转工具存放于 `tools/orthography_convert.py`。
+[Chinese version](README.zh-CN.md)
 
-## 🛠️ 硬件与技术栈
-- 开发设备：Mac Studio M2 Ultra 128GB，基于MLX实现本地离线训练/推理
-- 语音模型：OpenAI Whisper、VITS、FishSpeech
-- LLM底座：Qwen系列（原生适配MLX）
-- 开发语言：Python 3.11+
+## Goals
 
-## 📂 目录说明
-docs/ 规范文档、学术资料、田野采集模板
-tools/ 数据集处理、录音工具、拼音转换脚本
-dataset/ 双语词汇、短句文本（原始音频不存入 Git 版本库）
-speech/ ASR 语音识别、TTS 语音合成训练代码
-translation/ 汉土双语翻译模型
-llm/ 对话流水线脚本、LLM 微调实验代码
-demo_web/ 静态网页演示程序（词典、翻译、发音工具）
+1. Collect field recordings and build a consistently annotated bilingual corpus.
+2. Train Tujia ASR (speech recognition) and TTS (speech synthesis).
+3. Build Tujia ↔ Chinese machine translation.
+4. Assemble a Tujia dialogue pipeline, modular first, LLM fine-tuning later.
+5. Ship lightweight learning tools for language revitalisation.
 
-## 📚 公开Zenodo数据集说明
-项目归档两套官方开源北部土家语文本语料，原始文件存放路径：`dataset/raw_zenodo/`
-1. **V1 初代存档版（DOI：10.5281/zenodo.4446698）**
-   素材残缺、拼音映射存在标注错误，仅用于学术溯源查阅，**禁止用于模型训练**；
-2. **V2 扩充完整版（DOI：10.5281/zenodo.4447924）**
-   本项目翻译/LLM/ASR/TTS唯一官方训练数据源，完整包含拼音对照表、词汇、课本短句、民间叙事、日常问候语。
+## Scope
 
-原始数据由 Zenodo 记录 4446698 / 4447924 提供，上传者标注 `Other (Public Domain)`；该标注不是标准许可，且底层词表版权归 Brassett 等原作者。本项目不再分发原始文件，仅提供取数脚本。经 `tools/orthography_convert.py` 转换、清洗后的标准化语料存放于 `dataset/processed/`，其许可仅覆盖本项目新增的转换与标注工作。
+**Northern Tujia only** (Longshan / Yongshun / Laifeng area, Miaotan standard).
+Southern Tujia is deliberately excluded for now, to avoid mixing dialects in training.
 
-### 学术引用格式
-#### V1 初代数据集
-Zhou, Y., & Hill, N. W. (2021). A collection of North Tujia (Bifzivsar 北部土家语) vocabulary and textual passages for use in NLP (Version 1) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.4446698
-#### V2 完整版数据集
-Zhou, Y., & Hill, N. W. (2021). A collection of North Tujia (Bifzivsar 北部土家语) vocabulary and textual passages for use in NLP (Version 2) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.4447924
+## Orthography
 
-完整数据集许可约束详见根目录 `DATASET_LICENSE.md`。
+The project follows the **Yedshu–Peng (1984) Tujia romanisation** ("Ye"). Other
+transcriptions are not used as the working standard.
 
-## 🤝 如何参与贡献
-欢迎所有志愿者参与：
-1. 土家族同胞：协助田野录音、语义校对、发音校验；
-2. AI/NLP开发者：模型微调、代码优化、前端工具开发；
-3. 语言学爱好者：扩充词汇、整理语法资料。
+Two IPA spellings appear in source materials for the same sounds:
 
-### ⚖️ 伦理规范
-所有田野录音必须提前获取受访者**知情同意**，严格保护老人隐私，采集素材不可私自商用。
+| Earlier spelling | Current standard |
+| --- | --- |
+| `aŋ eŋ iŋ oŋ`, `ʐ`, `iu` | `ã ẽ ĩ ũ`, `z`, `iou` |
 
-## 📄 开源协议
-- 程序源代码：**MIT License**（根目录 LICENSE 文件）
-- 第三方原始语料：版权归原权利人，本项目不授予许可、不再分发，详见 `dataset/raw_zenodo/README.md`
-- 项目自行生成的标准化数据与标注：**CC-BY 4.0**（不含原始词表全文）
-- 田野原始音频：遵循每位受访者单独签署的知情同意约定
+The `tujia_nlp` package normalises between them: input accepts either spelling, output is
+always the current convention.
 
-## 📌 项目进度清单
-- [x] Github仓库初始化
-- [ ] 完善《土家语数据采集与标注规范》
-- [ ] 整理公开文献，搭建基础词汇库
-- [ ] 启动田野录音采集
-- [ ] Whisper增量微调 土家语ASR
-- [ ] 训练土家语TTS语音合成
-- [ ] 汉-土双语翻译模型
-- [ ] 土家语语音对话Web Demo
-- [ ] 土家语大模型SFT微调（长期目标）
+## Ecosystem
+
+| Repository | Role |
+| --- | --- |
+| **TujiaNLP** (this) | Corpus terms, collection standards, orthography, licensing |
+| [tujia-asr](https://github.com/ibaibing/tujia-asr) | Acoustic model releases: syllable-level CTC |
+| [tujia-tts](https://github.com/ibaibing/tujia-tts) | Speech synthesis releases |
+| [tujia-llm](https://github.com/ibaibing/tujia-llm) | LoRA adapters and the evaluation protocol |
+
+Where the work happens:
+
+```
+audio ──► tujia-asr        acoustic model, syllable-level output
+
+text  ──► tujia_nlp        IPA ↔ Ye, tone notation ──► tts / llm data, annotations
+```
+
+Rules of thumb:
+
+- **This repository** owns language resources and contracts: the syllable table, the
+  orthography rules, the corpus terms, and the dictionary entry/manifest schemas.
+- **tujia-asr / tujia-tts / tujia-llm** own model releases. Training code lives in private
+  `*-lib` / `*-lab` repositories.
+
+## Installation
+
+```bash
+pip install tujia-nlp
+```
+
+Requires Python 3.9+. No third-party dependencies.
+
+## Usage
+
+```python
+from tujia_nlp import format_syllable, normalize_shape, to_ipa, to_ye
+
+to_ye("la35")                    # "laf"
+to_ye("kaŋ35")                   # "gangf"   legacy input accepted
+to_ipa("gangf")                  # "kã35"    output in the current convention
+format_syllable("la35", "ipa")   # "la³⁵"
+normalize_shape("ʐuo")           # "zuo"
+```
+
+Notation rules:
+
+- `to_ipa` always emits the current convention: nasalised vowels `ã ẽ ĩ ũ`, `z`, `iou`.
+- `to_ye` accepts both: legacy `aŋ eŋ iŋ oŋ`, `ʐ`, `iu` are folded before lookup.
+- A few contrasts are not distinguished by the Ye scheme (`ɿ` / `i`, `ə` / `ɤ`), so conversion
+  is one-way: `to_ye` can produce Ye, `to_ipa` cannot recover them.
+
+The syllable table covers 291 Northern Tujia syllables, 227 attested in corpus material and
+64 derived by rule.
+
+Beyond IPA ↔ Ye, three helpers are available as submodules:
+
+```python
+from tujia_nlp import phone_norm, syllable, zh_sound
+
+syllable.split_head("a⁵⁵ji²¹")     # [("a", 55), ("ji", 21)]
+syllable.tone_stats(["la³⁵"])      # tone usage per shape
+phone_norm.canon("d")              # ["t"]  voiced stops fold onto voiceless
+zh_sound.pinyin_to_ipa("ni3")      # ("ni", 21)
+```
+
+`zh_sound.text_to_syllables` accepts hanzi only when the optional `pypinyin` package is
+installed (`pip install "tujia-nlp[zh]"`); plain pinyin input needs nothing extra.
+
+## Data coverage
+
+The published package contains only the syllable table. Recordings, transcripts and
+dictionary entries are not distributed.
+
+## Repository layout
+
+```
+src/tujia_nlp/     the package: tones.py, ye.py, syllable.py, phone_norm.py, zh_sound.py
+schema/            dictionary entry and pack manifest contracts (JSON Schema)
+tests/             unit tests (pytest)
+docs/              annotation standards and resources
+dataset/           corpus metadata and fetch scripts (raw data is not committed)
+tools/             early conversion scripts, superseded by the package
+```
+
+## Zenodo datasets
+
+Two public North Tujia text corpora are archived on Zenodo. Only fetch scripts and checksums
+live in this repository; the original files are not redistributed.
+
+1. **V1 (DOI: 10.5281/zenodo.4446698)** — incomplete, contains annotation errors, for
+   provenance only, **not for training**.
+2. **V2 (DOI: 10.5281/zenodo.4447924)** — the recommended source for translation, LLM, ASR
+   and TTS work; includes the orthography mapping, vocabulary, textbook sentences, folk
+   narratives and greetings.
+
+The upstream record is marked `Other (Public Domain)`, which is not a standard licence. This
+project does not redistribute the files. Standardised data derived by this project is
+released under CC-BY 4.0, covering only the new conversion and annotation work.
+
+### Citation
+
+Zhou, Y., & Hill, N. W. (2021). *A collection of North Tujia (Bifzivsar) vocabulary and
+textual passages for use in NLP* (Version 2) [Data set]. Zenodo.
+https://doi.org/10.5281/zenodo.4447924
+
+See `DATASET_LICENSE.md` for the full constraints.
+
+## Contributing
+
+- Tujia speakers: field recordings, semantic proofreading, pronunciation checks.
+- NLP developers: model fine-tuning, code review, front-end tools.
+- Linguists: vocabulary expansion and grammatical notes.
+
+### Ethics
+
+Every field recording requires prior **informed consent**. Speaker privacy must be protected
+and recorded material must not be used commercially without permission.
+
+## License
+
+- Source code: **MIT** (see `LICENSE`).
+- Third-party corpora: rights remain with the original authors; not licensed or redistributed here.
+- Data produced by this project: **CC-BY 4.0**, excluding the original word lists.
+- Field recordings: governed by each speaker's individual consent form.
+
+## Roadmap
+
+- [x] Repository bootstrapped
+- [x] `tujia_nlp` orthography package (IPA ↔ Ye, tone notation)
+- [x] Dictionary entry and pack manifest schemas
+- [ ] Annotation standard finalised
+- [ ] Base vocabulary assembled
+- [ ] Field recording collection started
+- [ ] Tujia ASR fine-tuning
+- [ ] Tujia TTS training
+- [ ] Tujia ↔ Chinese translation model
+- [ ] Dialogue web demo
+- [ ] LLM SFT (long-term)

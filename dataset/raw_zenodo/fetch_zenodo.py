@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""从 Zenodo 下载土家语语料（记录 4447924）。
+"""Download the North Tujia corpus from Zenodo (record 4447924).
 
-本仓库不再分发这些文件。运行本脚本后，数据会落在
-dataset/raw_zenodo/v2_4447924/，并逐个校验 Zenodo 公布的 MD5。
+The files are not distributed with this repository. Running this script places
+them in dataset/raw_zenodo/v2_4447924/ and verifies each file against the MD5
+published by Zenodo.
 
-用法:
+Usage:
     python3 dataset/raw_zenodo/fetch_zenodo.py
 """
 import hashlib
@@ -27,7 +28,7 @@ def load_manifest():
 def fetch(record, name, md5, size):
     dst = OUT / name
     if dst.exists() and dst.stat().st_size == size:
-        print(f"[skip] {name} 已存在")
+        print(f"[skip] {name} already present")
         return
     url = (
         f"https://zenodo.org/api/records/{record}/files/"
@@ -40,13 +41,13 @@ def fetch(record, name, md5, size):
             data = resp.read()
     except Exception as exc:  # noqa: BLE001
         sys.exit(
-            f"[error] 下载 {name} 失败：{exc}\n"
-            f"        请用浏览器打开 https://zenodo.org/records/{record} 手动下载，"
-            f"并放入 {OUT}/ 后重跑本脚本。"
+            f"[error] failed to download {name}: {exc}\n"
+            f"        Open https://zenodo.org/records/{record} in a browser, "
+            f"download manually into {OUT}/, then rerun this script."
         )
     got = hashlib.md5(data).hexdigest()
     if got != md5:
-        sys.exit(f"[error] {name} 校验失败：{got} != {md5}")
+        sys.exit(f"[error] checksum mismatch for {name}: {got} != {md5}")
     OUT.mkdir(parents=True, exist_ok=True)
     dst.write_bytes(data)
     print(f"[ok] {name} ({size} bytes)")

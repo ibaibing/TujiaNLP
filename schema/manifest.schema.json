@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ibaibing/TujiaNLP/schema/manifest.schema.json",
+  "title": "Dictionary pack manifest",
+  "description": "One manifest.json per pack. Declares identity, licence, visibility and checksum; a decoding engine loads packs by manifest and knows no dictionary by name.",
+  "type": "object",
+  "required": [
+    "pack_id",
+    "title",
+    "edition",
+    "variety",
+    "orthography",
+    "entries",
+    "sha256",
+    "rights_holder",
+    "license",
+    "allowed_uses",
+    "visibility",
+    "provenance"
+  ],
+  "properties": {
+    "pack_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "description": "Unique pack id, lowercase with hyphens, e.g. 'pack-a'."
+    },
+    "title": {"type": "string", "minLength": 1},
+    "edition": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Edition identifier, e.g. 'zenodo-4447924-v2'."
+    },
+    "variety": {
+      "type": "string",
+      "description": "Dialect or region, e.g. 'Northern Tujia (Longshan)'."
+    },
+    "orthography": {
+      "type": "string",
+      "description": "Spelling scheme of the entries and the notation stored on import."
+    },
+    "entries": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of valid lines in lexicon.jsonl."
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$",
+      "description": "SHA-256 of lexicon.jsonl, used for run ids and integrity checks."
+    },
+    "rights_holder": {
+      "type": "string",
+      "description": "Rights holder or compiler."
+    },
+    "license": {
+      "type": "string",
+      "description": "Licence name; uploader-declared public domain must be marked 'uploader-declared'."
+    },
+    "allowed_uses": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "enum": ["research", "redistribution", "commercial-use", "modification"]
+      },
+      "description": "Permitted uses; anything not listed is unauthorised."
+    },
+    "visibility": {
+      "enum": ["public", "private", "restricted"],
+      "description": "public may ship with an open repository; private stays local; restricted needs written permission. Note that git does not read this field: whether a pack is committed is decided by .gitignore."
+    },
+    "priority": {
+      "type": "integer",
+      "description": "Homograph priority, lower wins; defaults to 100."
+    },
+    "source": {
+      "type": "object",
+      "description": "Upstream source; doi / url / file / row_count recommended.",
+      "properties": {
+        "name": {"type": "string"},
+        "doi": {"type": "string"},
+        "url": {"type": "string"},
+        "file": {"type": "string"},
+        "row_count": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": true
+    },
+    "provenance": {
+      "type": "string",
+      "description": "Chain of custody, e.g. 'source edition -> orthography scheme -> IPA'."
+    },
+    "notes": {"type": "string"},
+    "generator": {"type": "string"},
+    "generated_at": {"type": "string"}
+  },
+  "additionalProperties": true
+}

@@ -1,33 +1,18 @@
-# 数据许可说明
+# Data licence
 
-本文件只说明**本项目自行生成**的内容，不覆盖任何第三方原始语料。
+This file covers content **produced by this project**. Third-party corpora are not
+distributed with the repository and are outside its scope.
 
-## 范围
+## Scope
 
-| 内容 | 许可 | 说明 |
+| Content | Licence | Note |
 |---|---|---|
-| 程序源代码 | MIT | 见根目录 `LICENSE` |
-| 本项目生成的标准化数据、标注、转换结果 | CC BY 4.0 | 不含第三方词表全文 |
-| 第三方原始语料（Zenodo 4446698 / 4447924） | 不适用 | 版权归原权利人；本项目不再分发 |
-| 田野录音 | 按知情同意书 | 每位受访者单独授权，未经许可不得商用 |
+| Source code | MIT | see `LICENSE` |
+| Standardised data, annotations and conversion output produced here | CC BY 4.0 | excludes third-party word lists in full |
+| Field recordings | per consent form | authorised by each speaker individually; no commercial use without permission |
 
-## 第三方语料
+## Third-party corpora
 
-Zenodo 记录由 Zhou & Hill (2021) 上传，许可字段标注为
-`Other (Public Domain)`。该标注不是标准许可（既不是 CC0，也不是 CC BY），
-且其中的 `Brassett (2006) to Ye orthography.csv` 衍生自 Brassett 词表，
-原始文件标注 `(C) 2004 Philip & Cecilia Brassett`。
-
-因此：
-
-1. 本项目不因收录、转换或提供下载脚本而授予任何许可；
-2. 原始文件不随仓库分发，使用者需自行从 Zenodo 获取；
-3. 如权利人提出异议，将立即移除相关内容。
-
-## 引用
-
-- Zhou, Y., & Hill, N. W. (2021). *A collection of North Tujia (Bifzivsar
-  北部土家语) vocabulary and textual passages for use in NLP* (Version 2).
-  Zenodo. https://doi.org/10.5281/zenodo.4447924
-- Brassett, Cecilia, Philip Brassett & Meiyan Lu. 2006. *The Tujia Language*.
-  (Languages of the World/Materials 455.) München: LINCOM.
+Third-party corpora are not distributed by this project. Users obtain them from the
+original publisher and follow that publisher's terms. Providing a fetch script grants
+no licence.
