@@ -102,6 +102,8 @@ def main():
     ap.add_argument("pack", type=Path)
     ap.add_argument("--dist", type=Path, default=REPO / "dist")
     ap.add_argument("--tier", type=int, default=None)
+    ap.add_argument("--index", action="store_true",
+                    help="同时刷新 data/index.json（默认不写：索引由应用自行维护）")
     args = ap.parse_args()
 
     errors, _ = validate(args.pack)
@@ -112,12 +114,13 @@ def main():
         return 1
 
     target, manifest = build_pack(args.pack, args.dist)
-    tiers = {manifest["pack_id"]: args.tier} if args.tier is not None else {}
-    index_path, packs = refresh_index(
-        [p for p in (REPO / "data" / "packs").iterdir() if p.is_dir()], args.dist, tiers
-    )
     print(f"pack:  {target}  ({target.stat().st_size} bytes)")
-    print(f"index: {index_path}  ({len(packs)} packs)")
+    if args.index:
+        tiers = {manifest["pack_id"]: args.tier} if args.tier is not None else {}
+        index_path, packs = refresh_index(
+            [p for p in (REPO / "data" / "packs").iterdir() if p.is_dir()], args.dist, tiers
+        )
+        print(f"index: {index_path}  ({len(packs)} packs)")
     return 0
 
 

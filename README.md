@@ -187,10 +187,9 @@ data/
   inventory/              syllables-0.6.3.tsv + manifest.json (sha256, counts, folds)
   packs/tujia-open-core/  CC-BY-4.0 core vocabulary (1,620 entries, Zhou 2020)
   schema/                 syllabary + packindex contracts
-  index.json              pack index
 tools/lexicon/
   validate.py             contract checks (columns, counts, sha, no source names)
-  package.py              build .tjpack + index.json
+  package.py              build .tjpack (manual; consumers usually read the directory)
   build_open_core.py      regenerate the open-core pack
 ```
 

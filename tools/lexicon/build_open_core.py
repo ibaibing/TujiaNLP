@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the `tujia-open-core` pack from the Lexibank zhoubizic CLDF dataset.
+"""Build the `tujia-open-core` pack from the Zhou (2020) CLDF dataset.
 
 Source: Zhou, Yulou (2020) Proto-Bizic (CC-BY-4.0).
 The Proto-Bizic reconstructions are excluded; only the six modern varieties are
@@ -7,8 +7,7 @@ exported. Every entry satisfies the published TujiaNLP entry schema:
 `w / p / g / pos / pg` are always present, `sense` and `src_head` are added.
 
 Usage:
-    python3 scripts/build_open_core.py
-    python3 scripts/build_open_core.py --cldf /path/to/cldf --out packs/tujia-open-core
+    python3 tools/lexicon/build_open_core.py --cldf /path/to/cldf --out data/packs/tujia-open-core
 """
 
 import argparse
@@ -173,10 +172,10 @@ CC-BY-4.0. Attribution is required. See the citation above.
 
 
 def pack_readme(entries, concepts):
-    return f"""# {TITLE}
+    return f"""# Tujia open-core vocabulary / {TITLE}
 
-Open, redistributable core vocabulary for Tujia, built from the CC-BY-4.0
-Lexibank `zhoubizic` dataset (Zhou 2020).
+Open, redistributable core vocabulary for Tujia, built from Zhou, Yulou (2020),
+licensed CC-BY-4.0.
 
 | | |
 | --- | --- |
@@ -194,7 +193,7 @@ This is a core vocabulary, not a complete dictionary. Proto-Bizic
 reconstructions and all copyrighted dictionary content are excluded.
 
 ```bash
-tujia-asr audio.wav --dict packs/tujia-open-core/lexicon.jsonl
+tujia-asr audio.wav --dict data/packs/tujia-open-core/lexicon.jsonl
 ```
 """
 
@@ -230,7 +229,7 @@ def main():
         "orthography": "IPA, superscript tone digits",
         "entries": len(entries),
         "sha256": digest,
-        "rights_holder": "Zhou, Yulou; Lexibank contributors",
+        "rights_holder": "Zhou, Yulou",
         "license": LICENSE,
         "allowed_uses": ["research", "redistribution", "commercial-use", "modification"],
         "visibility": "public",

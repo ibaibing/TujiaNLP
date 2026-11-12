@@ -2,8 +2,9 @@
 
 **Tujia Lexicon Commons** — public, redistributable Tujia lexicon data.
 
-This repository holds **data only**. It does not contain a decoding engine: the
-recogniser lives in `tujia-asr`, and the orthography rules live in `TujiaNLP`.
+TujiaNLP carries this data layer alongside the orthography code. It does not
+contain a decoding engine: the recogniser lives in `tujia-asr`, and the
+translation rules live in `tujia-trans`.
 
 ## Principles
 
@@ -14,18 +15,23 @@ recogniser lives in `tujia-asr`, and the orthography rules live in `TujiaNLP`.
 - Every entry carries its source and licence. Provenance is never stripped.
 - One pack equals one source. Packs are merged at query time, never on disk, so
   attribution and withdrawal stay possible.
+- **One canonical output.** A lexicon is published once, as `tujia.pack/v1`
+  (directory or `.tjpack`). Derived formats — TTS pronunciation tables, ASR word
+  lists, translation caches — are produced by each consumer, never here. Adding a
+  field for one downstream tool is the wrong fix; that tool converts.
 
 ```
 TujiaNLP        orthography, tone notation, phone normalisation, entry/manifest schemas
-tujia-asr       speech recognition; reads a lexicon through --dict
 TujiaNLP data   syllable inventory, public packs, schema and release artifacts
+tujia-asr       speech recognition; reads a lexicon through --dict
+tujia-trans     translation engine and app; reads packs directly
 ```
 
 ## What is published here
 
 Only material that may be redistributed:
 
-- packs built for this repository (currently `tujia-open-core`, CC-BY-4.0);
+- packs built for this data layer (currently `tujia-open-core`, CC-BY-4.0);
 - community-contributed packs whose licence allows redistribution;
 - packs whose rights holder has given written permission.
 
@@ -36,7 +42,7 @@ is never copied here.
 ## Packs
 
 ```
-packs/
+data/packs/
   tujia-open-core/
     manifest.json
     lexicon.jsonl
@@ -48,15 +54,17 @@ A **pack equals one source**. Packs are never merged on disk; an application
 loads several packs and merges them at query time. This keeps attribution,
 licensing and withdrawal per source.
 
-`index.json` lists the packs an application may load, in tier order (`tier 0` is
-the primary pack, higher tiers are fallbacks):
+This data layer publishes **packs only**, never a ready-made application index.
+An application that loads several packs maintains its own `index.json` in tier
+order (`tier 0` is the primary pack, higher tiers are fallbacks). The format is
+described by `data/schema/packindex.schema.json`:
 
 ```json
 {
   "schema": "tujia.packindex/v1",
   "packs": [
     {
-      "file": "tujia-open-core-0.1.0.tjpack",
+      "file": "tujia-open-core.tjpack",
       "pack_id": "tujia-open-core",
       "edition": "0.1.0",
       "tier": 0,
@@ -148,22 +156,23 @@ makes attribution, correction and withdrawal possible later.
 ## Build and release
 
 ```bash
-# build the open-core pack from the Lexibank CLDF dataset
-python3 scripts/build_open_core.py
+# build the open-core pack from the Zhou (2020) CLDF dataset
+python3 tools/lexicon/build_open_core.py
 
 # check required fields, pg pattern, entry count and sha256
-python3 scripts/validate.py packs/tujia-open-core
+python3 tools/lexicon/validate.py data/packs/tujia-open-core
 
 # check the inventory: columns, row invariants, counts, sha256, no source names
-python3 scripts/validate.py inventory
+python3 tools/lexicon/validate.py data/inventory
 
-# produce dist/<pack_id>-<edition>.tjpack and refresh index.json
-python3 scripts/package.py packs/tujia-open-core --tier 0
+# produce dist/<pack_id>-<edition>.tjpack (manual; apps usually read the directory)
+python3 tools/lexicon/package.py data/packs/tujia-open-core
 ```
 
 A `.tjpack` is a zip containing `manifest.json`, `lexicon.jsonl`, `NOTICE.md`,
 `README.md` and any optional `rules/`, `tm.jsonl`, `orthography.yaml` declared
-in the manifest.
+in the manifest. It is a transport container for consumers that need one file;
+this repository does not publish it.
 
 ## Versioning
 
@@ -188,7 +197,7 @@ updated silently.
 # ASR: syllable output by default; pass a lexicon for word output
 tujia-asr audio.wav --dict packs/tujia-open-core/lexicon.jsonl
 
-# translation app / CLI: load the .tjpack listed in index.json
+# translation app / CLI: read the pack directory, or a .tjpack you built yourself
 ```
 
 The open-core pack is a **core vocabulary**, not a comprehensive decoding

@@ -10,7 +10,7 @@
   "orthography": "IPA, superscript tone digits",
   "entries": 1620,
   "sha256": "ac9e4a0a901208283fe97ac65874a542ccf90a3e46cd4ae88d17f3eb46728c10",
-  "rights_holder": "Zhou, Yulou; Lexibank contributors",
+  "rights_holder": "Zhou, Yulou",
   "license": "CC-BY-4.0",
   "allowed_uses": [
     "research",
@@ -31,13 +31,12 @@
     "notice": "NOTICE.md"
   },
   "counts": {
-    "entries": 1620,
-    "concepts": 346,
-    "varieties": 6,
-    "lexicon": 1620
+    "lexicon": 1620,
+    "rules": 0
   },
   "checksums": {
-    "lexicon.jsonl": "sha256:ac9e4a0a901208283fe97ac65874a542ccf90a3e46cd4ae88d17f3eb46728c10"
+    "lexicon.jsonl": "sha256:ac9e4a0a901208283fe97ac65874a542ccf90a3e46cd4ae88d17f3eb46728c10",
+    "NOTICE.md": "sha256:20d9287ff2f3da5d89227d26dfe58003640a13eaaa5f9f55746a582a601c19ce"
   },
   "generator": "scripts/build_open_core.py"
 }

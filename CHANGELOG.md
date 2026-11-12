@@ -16,9 +16,9 @@
   - `data/packs/tujia-open-core/`：1,620 条可再分发的核心词形（346 概念），
     `tujia.pack/v1` 格式，CC-BY-4.0；
   - `data/schema/`：音节表与包索引契约；
-  - `data/index.json`、`data/manifest.example.json`。
+  - `data/manifest.example.json`。
 - **数据工具 `tools/lexicon/`**：`validate.py`（契约校验）、`package.py`（打
-  `.tjpack` 与索引）、`build_open_core.py`（重建核心词表）。
+  `.tjpack`）、`build_open_core.py`（重建核心词表）。
 - **文档**：`docs/lexicon.md`（数据层说明）、README 的 “Lexicon data” 与
   “开放核心词表” 章节、`Attribution` 署名段。
 
@@ -40,7 +40,7 @@
 
 - 音节表导出统一使用 LF 行尾。此前 csv 默认 `\r\n` 导致 `manifest.json` 的
   sha256 与实际文件长期不一致，`validate.py` 反复报错。
-- 清理指向已删除仓库 `tujia-lexicon` 的死引用（含两个 schema 的 `$id`）。
+- 清理指向已合并数据仓库的死引用（含两个 schema 的 `$id`）。
 
 ### 验证
 
@@ -48,8 +48,8 @@
   sha256 `d02e78ea…`。
 - `pytest`：79 passed。
 - 构建产物：`tujia_nlp-0.3.0-py3-none-any.whl`（36 KB）、
-  `tujia_nlp-0.3.0.tar.gz`（96 KB）、`tujia-open-core-0.1.0.tjpack`（31 KB）、
-  `tujia-inventory-0.6.3.tar.gz`（20 KB）。
+  `tujia_nlp-0.3.0.tar.gz`（96 KB）。词典与音节表都不单独发包，随 sdist 分发。
+  音节表不单独发包，随 sdist 的 `data/inventory/` 分发。
 - 脱敏：本地路径、私有库名、页码、未授权字样均为 0；sdist 45 个文件复扫无命中。
 
 ### 兼容性

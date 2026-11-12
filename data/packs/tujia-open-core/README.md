@@ -1,7 +1,7 @@
-# 土家语开放核心词表
+# Tujia open-core vocabulary / 土家语开放核心词表
 
-Open, redistributable core vocabulary for Tujia, built from the CC-BY-4.0
-Lexibank `zhoubizic` dataset (Zhou 2020).
+Open, redistributable core vocabulary for Tujia, built from Zhou, Yulou (2020),
+licensed CC-BY-4.0.
 
 | | |
 | --- | --- |
@@ -19,5 +19,5 @@ This is a core vocabulary, not a complete dictionary. Proto-Bizic
 reconstructions and all copyrighted dictionary content are excluded.
 
 ```bash
-tujia-asr audio.wav --dict packs/tujia-open-core/lexicon.jsonl
+tujia-asr audio.wav --dict data/packs/tujia-open-core/lexicon.jsonl
 ```
