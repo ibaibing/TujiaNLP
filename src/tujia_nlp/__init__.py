@@ -10,11 +10,14 @@ Submodules:
 
     tones       tone notation: Chao digits, superscripts, Ye tone letters
     ye          IPA syllable <-> Ye spelling (legacy and 2021 spellings accepted)
+    corpus      corpus romanisation (x- = ɕ-, hh- = ɣ-) to IPA
     syllable    toned IPA word splitting and tone statistics
+    inventory   closed syllable inventory: is_legal / nearest / analyze
     phone_norm  phone-symbol normalisation across recognisers
     zh_sound    pinyin / hanzi to approximate phone sequences
 """
 
+from . import corpus, inventory
 from .tones import (
     CHAO_TONES,
     CHAO_TO_LETTER,
@@ -34,16 +37,18 @@ from .ye import (
     to_ye,
 )
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 
 __all__ = [
     "CHAO_TONES",
     "CHAO_TO_LETTER",
     "LETTER_TO_CHAO",
     "available_dialects",
+    "corpus",
     "format_syllable",
     "from_letter",
     "from_superscript",
+    "inventory",
     "normalize",
     "normalize_shape",
     "split_tone",

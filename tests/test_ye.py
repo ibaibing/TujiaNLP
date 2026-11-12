@@ -104,3 +104,33 @@ def test_normalize_shape():
 def test_south_not_available_yet():
     with pytest.raises(ValueError):
         to_ye("la35", dialect="south")
+
+
+def test_to_ipa_digit_tone():
+    assert to_ipa("la1") == "la55"
+    assert to_ipa("la4") == "la53"
+    assert to_ipa("guo2") == "kuo35"
+
+
+def test_digit_tone_category():
+    from tujia_nlp import format_syllable, split_tone
+
+    assert split_tone("la2") == ("la", "35")
+    assert to_ye("la2") == "laf"
+    assert to_ye("la53") == "lav"          # two digits stay a Chao value
+    assert format_syllable("la2", "ipa") == "la³⁵"
+
+
+def test_to_ipa_corpus_spellings():
+    # Text corpora write ɕ- as x- and ɣ- as hh-; the standard table does not.
+    assert to_ipa("xi2") == "ɕi35"
+    assert to_ipa("xie3") == "ɕiɛ21"
+    assert to_ipa("xian2") == "ɕiã35"
+    assert to_ipa("xiong1") == "ɕiøŋ55"
+    assert to_ipa("hhi1") == "ɣi55"
+    assert to_ipa("hhe2") == "ɣɤ35"
+
+
+def test_unknown_ye_still_raises():
+    with pytest.raises(ValueError):
+        to_ipa("notasyllable2")
