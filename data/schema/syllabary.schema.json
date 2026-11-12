@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ibaibing/TujiaNLP/data/schema/syllabary.schema.json",
+  "title": "Tujia syllable inventory manifest",
+  "description": "Contract for inventory/manifest.json. The inventory is the closed list of attested syllables; it is data only and names no source. Pair a row with `syllable == onset + rhyme`; the table itself is a TSV with exactly the five columns listed here.",
+  "type": "object",
+  "required": ["schema", "version", "file", "sha256", "columns", "counts"],
+  "properties": {
+    "schema": {"const": "tujia.syllabary/v1"},
+    "version": {"type": "string", "minLength": 1},
+    "file": {"type": "string", "minLength": 1},
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "columns": {
+      "description": "Column order of the TSV. Fixed: adding a column is a schema change, and a source-naming column is never allowed.",
+      "type": "array",
+      "const": ["syllable", "onset", "rhyme", "status", "n_books"]
+    },
+    "counts": {
+      "type": "object",
+      "required": ["total", "legal", "attested"],
+      "properties": {
+        "total": {"type": "integer", "minimum": 1},
+        "legal": {"type": "integer", "minimum": 0},
+        "attested": {"type": "integer", "minimum": 0},
+        "onsets": {"type": "integer", "minimum": 0},
+        "rhymes": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": true
+    },
+    "status_meaning": {
+      "type": "object",
+      "properties": {
+        "legal": {"type": "string"},
+        "attested": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "n_books": {
+      "description": "How the support count is published: bucketed, never exact.",
+      "type": "string"
+    },
+    "orthography": {"type": "string"},
+    "folds": {
+      "description": "Rhyme normalisation applied by the build, so a consumer can reproduce it.",
+      "type": "object",
+      "additionalProperties": {"type": "string"}
+    },
+    "onset_folds": {
+      "description": "Onset normalisation applied by the build (`ʐ` -> `z`, `ʔ` -> the zero onset).",
+      "type": "object",
+      "additionalProperties": {"type": "string"}
+    },
+    "provenance": {"type": "string"},
+    "licence": {"type": "string"},
+    "generator": {"type": "string"},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": true
+}

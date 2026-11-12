@@ -63,16 +63,19 @@ normalize_shape("ʐuo")           # "zuo"
 
 音节表覆盖北部土家语（龙山/永顺/来凤）291 个音节，其中 227 条有语料实证、64 条按规则推断。
 
-除 IPA ↔ Ye 之外，还有三个子模块：
+除 IPA ↔ Ye 之外，还有四个子模块：
 
 ```python
-from tujia_nlp import phone_norm, syllable, zh_sound
+from tujia_nlp import corpus, phone_norm, syllable, zh_sound
 
 syllable.split_head("a⁵⁵ji²¹")     # [("a", 55), ("ji", 21)]
 syllable.tone_stats(["la³⁵"])      # 每个音节的调值分布
 phone_norm.canon("d")              # ["t"]  浊塞音并入清音类
 zh_sound.pinyin_to_ipa("ni3")      # ("ni", 21)
+corpus.to_ipa("xi2")               # [{"ipa": "ɕi", ...}]  语料罗马字
 ```
+
+`corpus` 处理语料里那套拼写（`x-`=ɕ-、`hh-`=ɣ-、`an`=ã），与 `north.json` 的标准 Ye 表不同。
 
 `zh_sound.text_to_syllables` 处理汉字需要可选依赖 `pypinyin`（`pip install "tujia-nlp[zh]"`），
 纯拼音输入无需额外安装。
@@ -89,18 +92,17 @@ src/tujia_nlp/     包本体：tones.py、ye.py、syllable.py、phone_norm.py、
 schema/            词典条目与包清单契约（JSON Schema）
 tests/             单元测试（pytest）
 docs/              采集规范、资源清单
-dataset/           语料元数据与取数脚本（不含原始数据）
 tools/             早期转换脚本，功能已并入包
 ```
 
 ## 📚 公开Zenodo数据集说明
-项目归档两套官方开源北部土家语文本语料，原始文件存放路径：`dataset/raw_zenodo/`
+项目使用两套官方开源北部土家语文本语料，**不随仓库分发**，按下方 DOI 从 Zenodo 获取：
 1. **V1 初代存档版（DOI：10.5281/zenodo.4446698）**
    素材残缺、拼音映射存在标注错误，仅用于学术溯源查阅，**禁止用于模型训练**；
 2. **V2 扩充完整版（DOI：10.5281/zenodo.4447924）**
    本项目翻译/LLM/ASR/TTS唯一官方训练数据源，完整包含拼音对照表、词汇、课本短句、民间叙事、日常问候语。
 
-原始数据由 Zenodo 记录 4446698 / 4447924 提供，上传者标注 `Other (Public Domain)`，该标注不是标准许可。本项目不再分发原始文件，仅提供取数脚本。经 `tools/orthography_convert.py` 转换、清洗后的标准化语料存放于 `dataset/processed/`，其许可仅覆盖本项目新增的转换与标注工作。
+原始数据由 Zenodo 记录 4446698 / 4447924 提供，上传者标注 `Other (Public Domain)`，该标注不是标准许可。本项目**不再分发原始文件**，只保留取数脚本、校验和与官方元数据。经 `tools/orthography_convert.py` 转换、清洗后的语料属于本项目新增工作（CC BY 4.0），原始词表仍归原权利人。
 
 ### 学术引用格式
 #### V1 初代数据集
@@ -119,10 +121,25 @@ Zhou, Y., & Hill, N. W. (2021). A collection of North Tujia (Bifzivsar 北部土
 ### ⚖️ 伦理规范
 所有田野录音必须提前获取受访者**知情同意**，严格保护老人隐私，采集素材不可私自商用。
 
+## 📦 开放核心词表
+
+`data/packs/tujia-open-core/` 提供 **1,620 条可再分发的土家语核心词形**（346 个概念），格式为 `tujia.pack/v1`，Dart 端（`tujia-trans`）可直接读取，无需转换。
+
+- **来源**：Zhou, Yulou (2020)《Proto-Bizic: A Study of Tujia Historical Phonology》，斯坦福大学本科论文
+- **许可**：CC-BY-4.0（允许再分发、商业使用、修改，须署名）
+- **数字化数据**：另发布于 <https://github.com/luggroo/bizic-dictionary>，经维护者许可复用
+
+引用格式：
+
+```
+Zhou, Y. (2020). Proto-Bizic: A Study of Tujia Historical Phonology
+[Bachelor thesis]. Stanford University.
+```
+
 ## 📄 开源协议
 - 程序源代码：**MIT License**（根目录 LICENSE 文件）
-- 第三方原始语料：版权归原权利人，本项目不授予许可、不再分发，详见 `dataset/raw_zenodo/README.md`
-- 项目自行生成的标准化数据与标注：**CC-BY 4.0**（不含原始词表全文）
+- 第三方原始语料：不再分发，版权归原权利人，详见 `DATASET_LICENSE.md`
+- 本项目生成的数据（`data/inventory/` 音节表、`data/packs/tujia-open-core/` 核心词表）：**CC-BY 4.0**，须署名
 - 田野原始音频：遵循每位受访者单独签署的知情同意约定
 
 ## 📌 项目进度清单

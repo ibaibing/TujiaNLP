@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ibaibing/TujiaNLP/data/schema/packindex.schema.json",
+  "title": "Tujia pack index",
+  "description": "index.json lists the packs an application may load, in tier order. tier 0 is the primary pack; higher tiers are fallbacks.",
+  "type": "object",
+  "required": ["schema", "packs"],
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "tujia.packindex/v1"
+    },
+    "packs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["file", "pack_id", "edition", "tier", "license", "entries", "sha256"],
+        "properties": {
+          "file": {"type": "string", "minLength": 1},
+          "pack_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+          "title": {"type": "string"},
+          "edition": {"type": "string", "minLength": 1},
+          "tier": {"type": "integer", "minimum": 0},
+          "license": {"type": "string", "minLength": 1},
+          "variety": {"type": "string"},
+          "entries": {"type": "integer", "minimum": 0},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

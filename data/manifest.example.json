@@ -1,0 +1,31 @@
+{
+  "pack_id": "example-pack",
+  "title": "示例词典包",
+  "edition": "0.1.0",
+  "variety": "北部土家语",
+  "orthography": "IPA, superscript tone digits",
+  "entries": 0,
+  "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "rights_holder": "TujiaNLP contributors",
+  "license": "CC-BY-SA-4.0",
+  "allowed_uses": ["research", "redistribution", "commercial-use", "modification"],
+  "visibility": "public",
+  "provenance": "Describe where the entries came from and what was changed.",
+  "source": {
+    "name": "source name",
+    "url": "https://example.org/source",
+    "row_count": 0
+  },
+  "notes": "Replace this example. A pack equals one source.",
+  "files": {
+    "lexicon": "lexicon.jsonl",
+    "notice": "NOTICE.md"
+  },
+  "counts": {
+    "entries": 0
+  },
+  "checksums": {
+    "lexicon.jsonl": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "generator": "scripts/package.py"
+}

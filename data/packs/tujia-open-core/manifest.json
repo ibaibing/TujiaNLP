@@ -1,0 +1,43 @@
+{
+  "schema": "tujia.pack/v1",
+  "id": "tujia-open-core",
+  "name": "土家语开放核心词表",
+  "version": "0.1.0",
+  "pack_id": "tujia-open-core",
+  "title": "土家语开放核心词表",
+  "edition": "0.1.0",
+  "variety": "北部土家语 / 南部土家语",
+  "orthography": "IPA, superscript tone digits",
+  "entries": 1620,
+  "sha256": "ac9e4a0a901208283fe97ac65874a542ccf90a3e46cd4ae88d17f3eb46728c10",
+  "rights_holder": "Zhou, Yulou; Lexibank contributors",
+  "license": "CC-BY-4.0",
+  "allowed_uses": [
+    "research",
+    "redistribution",
+    "commercial-use",
+    "modification"
+  ],
+  "visibility": "public",
+  "provenance": "Zhou (2020) Proto-Bizic (CC-BY-4.0) -> IPA retained -> TujiaNLP entry schema -> TujiaNLP data pack",
+  "source": {
+    "name": "Zhou (2020)",
+    "url": "https://github.com/luggroo/bizic-dictionary",
+    "row_count": 1966
+  },
+  "notes": "Open core vocabulary, not a complete dictionary.",
+  "files": {
+    "lexicon": "lexicon.jsonl",
+    "notice": "NOTICE.md"
+  },
+  "counts": {
+    "entries": 1620,
+    "concepts": 346,
+    "varieties": 6,
+    "lexicon": 1620
+  },
+  "checksums": {
+    "lexicon.jsonl": "sha256:ac9e4a0a901208283fe97ac65874a542ccf90a3e46cd4ae88d17f3eb46728c10"
+  },
+  "generator": "scripts/build_open_core.py"
+}

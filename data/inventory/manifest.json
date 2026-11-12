@@ -1,0 +1,68 @@
+{
+  "schema": "tujia.syllabary/v1",
+  "version": "0.6.3",
+  "file": "syllables-0.6.3.tsv",
+  "sha256": "d02e78ea95e9f8c93cf45d7ad1b72cf2e9f21144bd97ba0c810b0202648191c4",
+  "columns": [
+    "syllable",
+    "onset",
+    "rhyme",
+    "status",
+    "n_books"
+  ],
+  "counts": {
+    "total": 1347,
+    "legal": 632,
+    "attested": 715,
+    "onsets": 28,
+    "rhymes": 291
+  },
+  "status_meaning": {
+    "legal": "two or more independent sources",
+    "attested": "one source; usable, but not the core"
+  },
+  "n_books": "support count bucketed as 1 / 2 / 3+; per-source attribution is not published",
+  "orthography": "IPA, normalised to the northern system (Yedshu 1984)",
+  "folds": {
+    "ian": "iã",
+    "ɤi": "ei",
+    "iøŋ": "iũ",
+    "e": "ɤ",
+    "ɛ": "ɤ",
+    "ɛ̃": "ẽ",
+    "ye": "ɣɤ",
+    "an": "ã",
+    "aŋ": "ã",
+    "en": "ẽ",
+    "eŋ": "ẽ",
+    "in": "ĩ",
+    "iŋ": "ĩ",
+    "on": "ũ",
+    "oŋ": "ũ",
+    "un": "ũ",
+    "uŋ": "ũ",
+    "uan": "uã",
+    "uaŋ": "uã",
+    "uen": "uẽ",
+    "iuŋ": "iũ"
+  },
+  "onset_folds": {
+    "b": "p",
+    "d": "t",
+    "g": "k",
+    "h": "x",
+    "ʔ": "",
+    "ħ": "x",
+    "ʕ": "x",
+    "ǳ": "ts",
+    "dz": "ts",
+    "dʑ": "tɕ",
+    "dʐ": "tʂ",
+    "ʑ": "ɕ",
+    "ʐ": "z"
+  },
+  "provenance": "Compiled from 23 privately held sources. Source identities and per-source attribution are withheld; they are recorded in a private registry and can be produced for a rights holder on request.",
+  "licence": "CC0-1.0 (this compilation); source works keep their own terms",
+  "generator": "export_public_inventory.py (TujiaNLP toolchain)",
+  "notes": "A syllable inventory, not a dictionary. No gloss, example, page image or source text is reproduced. Absence of a syllable means it was not attested in these sources, not that it is impossible."
+}
