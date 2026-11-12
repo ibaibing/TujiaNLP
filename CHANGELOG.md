@@ -49,7 +49,6 @@
 - `pytest`：79 passed。
 - 构建产物：`tujia_nlp-0.3.0-py3-none-any.whl`（36 KB）、
   `tujia_nlp-0.3.0.tar.gz`（96 KB）。词典与音节表都不单独发包，随 sdist 分发。
-  音节表不单独发包，随 sdist 的 `data/inventory/` 分发。
 - 脱敏：本地路径、私有库名、页码、未授权字样均为 0；sdist 45 个文件复扫无命中。
 
 ### 兼容性
