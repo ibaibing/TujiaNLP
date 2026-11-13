@@ -75,6 +75,17 @@ _CORPUS_SHAPE_ALIASES = {
     "hhe": "ɣɤ",
 }
 
+# ɣ 是独立音位，但 Ye 表只收了 hxi/hxe 两条。标准拼法 hx- 与语料拼法 hh-
+# 都是 ɣ + 韵母，按前缀机械展开，避免 hha/hhɨ 这类条目查不到表就被丢掉。
+_GH_PREFIXES = ("hx", "hh")
+
+
+def _gh_fallback(base: str) -> str | None:
+    for pre in _GH_PREFIXES:
+        if base.startswith(pre) and len(base) > len(pre):
+            return "ɣ" + base[len(pre):]
+    return None
+
 # Single-digit tones used by the corpora (and by pinyin) mapped to Chao values.
 _DIGIT_TONE = _TONE_DIGIT_TO_CHAO
 
@@ -204,7 +215,7 @@ def to_ipa(label: str, dialect: str = "north") -> str:
         return label
     table = _reverse(dialect)
     base, tone = _split_ye(label)
-    shape = table.get(base) or _CORPUS_SHAPE_ALIASES.get(base)
+    shape = table.get(base) or _CORPUS_SHAPE_ALIASES.get(base) or _gh_fallback(base)
     if shape is None:
         raise ValueError(f"cannot convert Ye syllable {label!r} for dialect {dialect!r}")
     return normalize_shape(shape) + tone

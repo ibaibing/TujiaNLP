@@ -17,6 +17,8 @@ TONE_VALUES = (55, 35, 21, 53)
 _PUNCT = re.compile(r"[*，,。．、…~`'\"\s\[\]（）()／/|.]+")
 
 # Dictionary-orthography symbols -> the phone symbols used by the recognisers.
+# ɣ is left alone: it is a distinct phoneme in the 2021 dictionary, and folding it
+# into k (a stop) merges two sounds that the inventory keeps apart.
 DICT_EXPAND = {
     "ʦ": "ts", "ʣ": "ts", "ʨ": "tɕ", "ʥ": "tɕ", "ʧ": "tʃ", "ʤ": "tʃ",
     "ɿ": "ɨ", "ʮ": "ɨ",
@@ -24,7 +26,7 @@ DICT_EXPAND = {
     "ɵ": "o", "ɶ": "a",
     "ɲ": "n", "ɳ": "n", "ɴ": "ŋ", "ɱ": "m",
     "ç": "ɕ", "ʝ": "j", "ʐ": "z", "ʑ": "z", "ʒ": "z",
-    "χ": "x", "h": "x", "ɦ": "x", "ɣ": "k",
+    "χ": "x", "h": "x", "ɦ": "x",
     "β": "w", "ʋ": "w", "v": "w", "ɸ": "f", "θ": "s", "ð": "z",
     "ɹ": "l", "ɻ": "l", "ɽ": "l", "ɾ": "l", "r": "l", "ʀ": "l", "ʁ": "l",
     "ɬ": "l", "ɮ": "l", "ɭ": "l", "ʟ": "l",

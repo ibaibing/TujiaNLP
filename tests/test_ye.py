@@ -129,6 +129,9 @@ def test_to_ipa_corpus_spellings():
     assert to_ipa("xiong1") == "ɕiøŋ55"
     assert to_ipa("hhi1") == "ɣi55"
     assert to_ipa("hhe2") == "ɣɤ35"
+    # ɣ outside i/e is not in the table; hx-/hh- + rhyme expands mechanically.
+    assert to_ipa("hha2") == "ɣa35"
+    assert to_ipa("hxɨ3") == "ɣɨ21"
 
 
 def test_unknown_ye_still_raises():
