@@ -33,7 +33,7 @@ where = ["src"]
 version = { attr = "tujia_nlp.__version__" }
 
 [tool.setuptools.package-data]
-tujia_nlp = ["data/*.json"]
+tujia_nlp = ["data/*.json", "data/packs/*/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

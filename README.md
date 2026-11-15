@@ -180,7 +180,15 @@ and recorded material must not be used commercially without permission.
 ## Lexicon data
 
 The repository also carries the public data that other Tujia projects consume.
-The Python package itself stays code-only; `data/` ships with the source tree.
+`syllabary.json` / `north.json` / `corpus.json` are installed with the package;
+the `packs/` vocabulary is too (from 0.4.0), so consumers can read it offline:
+
+```python
+from tujia_nlp.lexicon import pack_entries, pack_lexicon_path
+
+pack_entries(variety="north")[:1]   # [{'w': 'pʰa⁵⁵', ...}]
+pack_lexicon_path()                 # .../tujia_nlp/data/packs/tujia-open-core/lexicon.jsonl
+```
 
 ```
 data/

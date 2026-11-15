@@ -3,6 +3,20 @@
 格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，版本号遵循
 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [0.4.0] - 2026-11-15
+
+### 新增
+
+- **词表包随包分发 `tujia_nlp.lexicon`**：`data/packs/*` 打进 wheel
+  （此前只在 sdist 与源码树里），并新增 `pack_entries()` /
+  `pack_lexicon_path()` / `pack_manifest()` / `pack_dir()`，供下游直接读取。
+- `pack_entries(variety="north")` 可按方言过滤：北部 1,149 条、南部 471 条，
+  供只用北部数据的识别器取默认词表。
+
+### 变更
+
+- `package-data` 增加 `data/packs/*/*`，安装后即可离线使用 `tujia-open-core`。
+
 ## [0.3.0] - 2026-11-12
 
 ### 新增

@@ -15,9 +15,11 @@ Submodules:
     inventory   closed syllable inventory: is_legal / nearest / analyze
     phone_norm  phone-symbol normalisation across recognisers
     zh_sound    pinyin / hanzi to approximate phone sequences
+    lexicon     open vocabulary packs shipped under data/packs/
 """
 
-from . import corpus, inventory
+from . import corpus, inventory, lexicon
+from .lexicon import pack_dir, pack_entries, pack_lexicon_path, pack_manifest
 from .tones import (
     CHAO_TONES,
     CHAO_TO_LETTER,
@@ -37,7 +39,7 @@ from .ye import (
     to_ye,
 )
 
-__version__ = "0.3.0"
+__version__ = "0.4.0"
 
 __all__ = [
     "CHAO_TONES",
@@ -49,8 +51,13 @@ __all__ = [
     "from_letter",
     "from_superscript",
     "inventory",
+    "lexicon",
     "normalize",
     "normalize_shape",
+    "pack_dir",
+    "pack_entries",
+    "pack_lexicon_path",
+    "pack_manifest",
     "split_tone",
     "to_ipa",
     "to_letter",
