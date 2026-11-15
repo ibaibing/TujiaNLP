@@ -235,12 +235,13 @@ Zhou, Y. (2020). Proto-Bizic: A Study of Tujia Historical Phonology
 ## Roadmap
 
 - [x] Repository bootstrapped
-- [x] `tujia_nlp` orthography package (IPA ↔ Ye, tone notation)
+- [x] `tujia_nlp` orthography package (IPA ↔ Ye, tone notation) — 0.3.0
 - [x] Dictionary entry and pack manifest schemas
+- [x] Base vocabulary assembled — `tujia-open-core`, 1,620 forms / 346 concepts
+- [x] Vocabulary shipped as package data — 0.4.0, read via `tujia_nlp.lexicon`
+- [x] Field recording collection started — teaching recordings plus the video series
+- [x] Tujia ASR fine-tuning — syllable-level CTC, packaged as `tujia-asr` 1.0.0
 - [ ] Annotation standard finalised
-- [ ] Base vocabulary assembled
-- [ ] Field recording collection started
-- [ ] Tujia ASR fine-tuning
 - [ ] Tujia TTS training
 - [ ] Tujia ↔ Chinese translation model
 - [ ] Dialogue web demo

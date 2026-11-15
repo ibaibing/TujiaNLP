@@ -125,6 +125,13 @@ Zhou, Y., & Hill, N. W. (2021). A collection of North Tujia (Bifzivsar 北部土
 
 `data/packs/tujia-open-core/` 提供 **1,620 条可再分发的土家语核心词形**（346 个概念），格式为 `tujia.pack/v1`，Dart 端（`tujia-trans`）可直接读取，无需转换。
 
+从 0.4.0 起，该词表随 wheel 一起分发，`pip install tujia-nlp` 后可直接读取，无需另找文件：
+
+```python
+from tujia_nlp.lexicon import pack_entries
+north = pack_entries(variety='north')   # 1,149 条；不传参数则返回全部 1,620 条
+```
+
 - **来源**：Zhou, Yulou (2020)《Proto-Bizic: A Study of Tujia Historical Phonology》，斯坦福大学本科论文
 - **许可**：CC-BY-4.0（允许再分发、商业使用、修改，须署名）
 - **数字化数据**：另发布于 <https://github.com/luggroo/bizic-dictionary>，经维护者许可复用
@@ -144,10 +151,13 @@ Zhou, Y. (2020). Proto-Bizic: A Study of Tujia Historical Phonology
 
 ## 📌 项目进度清单
 - [x] Github仓库初始化
+- [x] `tujia_nlp` 正字法包（IPA ↔ Ye、声调标记）—— 0.3.0
+- [x] 词典条目与词表包（`.tjpack`）契约
+- [x] 整理公开文献，搭建基础词汇库 —— `tujia-open-core`，1,620 条词形 / 346 个概念
+- [x] 词表随包分发 —— 0.4.0 起打进 wheel，通过 `tujia_nlp.lexicon` 读取
+- [x] 启动田野录音采集 —— 教学录音与「跟我学说土家语」视频系列
+- [x] 土家语 ASR 微调 —— 音节级 CTC，已打包为 `tujia-asr` 1.0.0
 - [ ] 完善《土家语数据采集与标注规范》
-- [ ] 整理公开文献，搭建基础词汇库
-- [ ] 启动田野录音采集
-- [ ] Whisper增量微调 土家语ASR
 - [ ] 训练土家语TTS语音合成
 - [ ] 汉-土双语翻译模型
 - [ ] 土家语语音对话Web Demo
